@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const SHero = styled.section `
     background-color: #6b91421a;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     padding-top: 232px;
     padding-bottom: 68px;
@@ -59,7 +58,7 @@ export const SearchInput = styled.input `
     background: transparent;
     font-size: 1.3rem;  
     outline: none;
-    margin-right: 215px;
+    margin-right: 191px;
 
     &::placeholder {
         color: #b0b8a4;

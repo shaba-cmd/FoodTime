@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom'
 import { SButton } from './Button.styled'
 
-const Button = ({ style, link, text, children }) => {
+const Button = ({ styles, link, text, children }) => {
   return (
-    <SButton $type={style}>
+    <SButton $type={styles}>
       <Link to={link}>
           {text}
           {children}

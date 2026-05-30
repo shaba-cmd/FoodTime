@@ -19,7 +19,7 @@ const Hero = () => {
                     <img src={location} alt="location" />
                 </LocationIcon>
 
-                <SearchInput type="text" placeholder="Enter your location"/>
+                <SearchInput type="text" placeholder="Enter your location" />
 
                 <SearchBtn>
                     <img src={search} alt="search" />

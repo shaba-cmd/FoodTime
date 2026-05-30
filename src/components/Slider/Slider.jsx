@@ -1,47 +1,51 @@
 import Item from '../Item/Item.jsx'
 import Button from '../Button/Button.jsx'
 import arrow from '../../assets/arrow.svg'
-import restaurants from '../../assets/restaurants.svg'
-import order from '../../assets/order.svg'
-import time from '../../assets/time.svg'
+import { SSlider, SliderBtn, Iamge, Title, Text } from './Slider.styled.js'
+import { slider } from '../../../data.js'
+import { useState } from 'react'
 
 const Slider = () => {
-  return (
-    <section className='slider'>
-      <div className='slider__btn'>
-        <Item
-          title={'Wide selection of restaurants'}
-          text={'Lorem ipsum dolor sit amet consectetur. Ornare massa nunc nibh tristique.'}
-        >
-          <img src={restaurants} alt="restaurants" />
-        </Item>
-        
-        <Item
-          title={'Easy ordering process'}
-          text={'Lorem ipsum dolor sit amet consectetur. Ornare massa nunc .'}
-        >
-          <img src={order} alt="order" />
-        </Item>
-        
-        <Item
-          title={'Fast delivery within 20 min'}
-          text={'Lorem ipsum dolor sit amet consectetur. Ornare massa nunc nibh.'}
-        >
-          <img src={time} alt="time" />
-        </Item>
-      </div>
+  const [activeId, setActiveId] = useState(slider[0].id)
+  const [idSlide, setIdSlide] = useState(slider[0])
 
-      <div className='slider__img'>
-        <p>Want to be a part of Foodtime?</p>
-        <p>List your restaurant or shop on foodtime.</p>
-        <Button
-          link={'/cart'}
-          text={'Get started'}
-        >
-          <img src={arrow} alt="go" />
-        </Button>
+  const handleClickSlider = (el) => {
+    setActiveId(el.id)
+    setIdSlide(el)
+  }
+
+  return (
+    <SSlider className='container' >
+      <SliderBtn>
+        {slider.map((el) => { return (
+            <Item 
+              key={el.id}
+              onClick={() => handleClickSlider(el)}   
+              isActive={el.id === activeId}       
+              title={el.title}
+              text={el.text}
+            >
+              <img src={el.icon} alt={el.title} />
+            </Item>
+        )})}
+      </SliderBtn>
+
+      <div>
+        <Iamge key={idSlide.id} $type={idSlide.slide.img}>
+          <div>
+            <Title>{idSlide.slide.title}</Title>
+            <Text>{idSlide.slide.text}</Text>
+            <Button
+              styles={'slider-btn'}
+              link={'/cart'}
+              text={idSlide.slide.btn}
+            >
+              <img src={arrow} alt="go" />
+            </Button>
+          </div>
+        </Iamge>
       </div>
-    </section>
+    </SSlider>
   )
 }
 

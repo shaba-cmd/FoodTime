@@ -10,7 +10,7 @@ export const SExplore = styled.section `
     padding-bottom: 49px;
 `
 export const Box = styled.div `
-    width: 554px;
+    width: 553px;
     display: flex;
     flex-direction: column;
     align-items: start;

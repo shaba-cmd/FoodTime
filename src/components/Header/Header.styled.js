@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const SHeader = styled.header `
@@ -11,11 +12,9 @@ export const SHeader = styled.header `
     top: 0;
     width: 100%;
 `
-export const Logo = styled.div `
-    & a {
-        text-decoration: none;
-        cursor: pointer;
-    }
+export const Logo = styled(Link) `
+    text-decoration: none;
+    cursor: pointer;
 `
 
 export const Block = styled.div `
@@ -61,7 +60,7 @@ export const BtnBox = styled.div `
     gap: 23px;
 `
 
-export const Cart = styled.a `
+export const Cart = styled(Link) `
     background-color: #396C03;
     border-radius: 50%;
     border: none;

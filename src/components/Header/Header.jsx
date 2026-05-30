@@ -5,10 +5,8 @@ import { SHeader, Logo, Block, List, BtnBox, Cart } from './Header.styled'
 const Header = () => {
   return (
     <SHeader className='container'>
-        <Logo>
-            <Link to='/'>
-                <img src="/logo.svg" alt="logo" />
-            </Link>
+        <Logo to='/'>
+            <img src="/logo.svg" alt="logo" />
         </Logo>
         <Block>
             <nav>
@@ -23,14 +21,12 @@ const Header = () => {
                 </List>
             </nav>
             <BtnBox>
-                <Button style={'SHeader-btn'} link={'/auth'} text={'Login'} />
-                <Cart>
-                    <Link to='/cart'>
-                        <img src="/cart.svg" alt="cart" />
-                        <div className='-counter'>
-                            <div>1</div> {/* здесь будет храниться состояние кол-ва добавленных продуктов */}
-                        </div>
-                    </Link>
+                <Button styles={'header-btn'} link={'/auth'} text={'Login'} />
+                <Cart to='/cart'>
+                    <img src="/cart.svg" alt="cart" />
+                    <div className='-counter'>
+                        <div>1</div> {/* здесь будет храниться состояние кол-ва добавленных продуктов */}
+                    </div>
                 </Cart>
             </BtnBox>
         </Block>

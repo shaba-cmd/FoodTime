@@ -1,8 +1,8 @@
 import { SItem, Title, Text } from './Item.styled.js'
 
-const Item = ({ children, title, text }) => {
+const Item = ({ isActive, children, title, text, onClick }) => {
   return (
-    <SItem>
+    <SItem $type={isActive} onClick={onClick}>
         <div>
           {children}
         </div>
