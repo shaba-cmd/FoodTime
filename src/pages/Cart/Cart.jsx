@@ -1,6 +1,10 @@
+import { SCart } from "./Cart.styled" 
+
 const Cart = () => {
   return (
-    <main>Cart</main>
+    <SCart>
+      <h2>Empty</h2>
+    </SCart>
   )
 }
 

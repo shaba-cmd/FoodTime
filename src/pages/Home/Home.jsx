@@ -1,6 +1,8 @@
-import Hero from '../../components/Hero/Hero'
-import Explore from '../../components/Explore/Explore'
-import Slider from '../../components/Slider/Slider'
+import Hero from './Hero/Hero'
+import Explore from './Explore/Explore'
+import Slider from './Slider/Slider'
+import Questions from './Questions/Questions'
+import Application from './Application/Application'
 
 const Home = () => {
   return (
@@ -8,6 +10,8 @@ const Home = () => {
       <Hero />
       <Explore />
       <Slider />
+      <Questions />
+      <Application />
     </main>
   )
 }
