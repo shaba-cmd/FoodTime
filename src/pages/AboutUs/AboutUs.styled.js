@@ -15,6 +15,10 @@ export const AboutBox = styled.div `
         flex-direction: column;
         gap: 14px;
     }
+
+    @media (max-width: 1050px) {
+        flex-wrap: wrap;
+    }
 `
 
 export const Title = styled.h2 `
@@ -32,6 +36,10 @@ export const ImageBox = styled.div `
 
     & img {
         border-radius: 28px;
+    }
+
+    @media (max-width: 1050px) {
+        width: 100%;
     }
 `
 
@@ -87,6 +95,10 @@ export const ImgContainer = styled.div `
     display: flex;
     justify-content: center;
     border-radius: 28px;
+
+    @media (max-width: 840px) {
+        display: none;
+    }
 `
 
 export const ContactTextBox = styled.div `
@@ -97,6 +109,7 @@ export const ContactTextBox = styled.div `
 
 export const ContactLink = styled.div `
     display: flex;
+    flex-wrap: wrap;
     gap: 20px;
 
     & a {

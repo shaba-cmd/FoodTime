@@ -24,6 +24,28 @@ export const SExplore = styled.section `
             width: 500px;
         }
     }
+
+    @media (max-width: 840px) {
+        padding-left: calc(50% - 300px);
+
+        & .delivery {
+            display: none;
+        }
+    }
+
+    @media (max-width: 640px) {
+        padding-left: calc(50% - 200px);
+        padding-right: calc(50% - 200px);
+    }
+
+    @media (max-width: 425px) {
+        padding-left: calc(50% - 150px);
+        padding-right: calc(50% - 150px);
+    }
+
+    @media (max-width: 425px) {
+        padding-top: 50px;
+    }
 `
 export const Box = styled.div `
     width: 553px;
@@ -31,6 +53,9 @@ export const Box = styled.div `
     flex-direction: column;
     align-items: start;
     gap: 14px;
+    @media (max-width: 425px) {
+        width: 100%;
+    }
 `
 export const Title = styled.h2 `
     font-size: 3.125rem;

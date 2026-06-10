@@ -22,9 +22,17 @@ export const Title = styled.h3 `
 export const BtnBox = styled.div `
     display: flex;
     gap: 17px;
+
+    @media (max-width: 425px) {
+        flex-direction: column;
+    }
 `
 
 export const FaqBox = styled.div `
     column-count: 2;
     column-gap: 47px;
+
+    @media (max-width: 840px) {
+        column-count: 1 ;
+    }
 `

@@ -42,9 +42,31 @@ export const GlobalStyle = createGlobalStyle `
     }
 
     @media (max-width: 840px) {
+        html {
+            font-size: 14px;
+        }
+
         .container {
             padding-left: calc(50% - 300px);
             padding-right: calc(50% - 300px);
+        }
+    }
+
+    @media (max-width: 640px) {
+        .container {
+            padding-left: calc(50% - 200px);
+            padding-right: calc(50% - 200px);
+        }
+    }
+
+    @media (max-width: 425px) {
+        html {
+            font-size: 12px;
+        }
+
+        .container {
+            padding-left: calc(50% - 150px);
+            padding-right: calc(50% - 150px);
         }
     }
 `;

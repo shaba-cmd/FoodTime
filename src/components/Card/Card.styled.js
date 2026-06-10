@@ -18,6 +18,10 @@ export const ImgBox = styled.div `
     & img {
         width: 100%;
     }
+
+    @media (max-width: 425px) {
+        height: 300px;
+    }
 `
 
 export const TextBox = styled.div `

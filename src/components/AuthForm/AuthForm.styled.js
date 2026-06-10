@@ -63,6 +63,16 @@ export const FormAuth = styled.form `
         color: red;
         width: 300px;
     }
+
+    @media (max-width: 444px) {
+        & input {
+            width: 100%;
+        }
+
+        p {
+            width: 100%;
+        }
+    }
 `
 
 export const Text = styled.p `
@@ -78,5 +88,9 @@ export const Text = styled.p `
 
     & a:hover {
         color: #3bc7ff;
+    }
+
+    @media (max-width: 444px) {
+        font-size: 1rem;
     }
 `

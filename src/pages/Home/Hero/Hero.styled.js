@@ -6,7 +6,11 @@ export const SHero = styled.section `
     align-items: center;
     padding-top: 232px;
     padding-bottom: 68px;
-`
+
+    @media (max-width: 425px) {
+        padding-top: 150px;
+    }
+`   
 
 export const Box = styled.div `
     display: flex;
@@ -27,6 +31,15 @@ export const Box = styled.div `
 
     @media (max-width: 1050px) {
         width: 100%;
+    }
+
+    @media (max-width: 640px) {
+        text-align: center;
+    }
+    @media (max-width: 425px) {
+        .leaf {
+            display: none;
+        }
     }
 `
 
@@ -71,6 +84,10 @@ export const SearchInput = styled.input `
     &::placeholder {
         color: #b0b8a4;
     }
+
+    @media (max-width: 640px) {
+        margin-right: -35px;
+    }
 `
 
 export const SearchBtn = styled.button `
@@ -85,6 +102,15 @@ export const SearchBtn = styled.button `
     font-size: 1.3rem;
     cursor: pointer;
     flex-shrink: 0;
+
+    @media (max-width: 640px) {
+        gap: 25px;
+        padding: 20px 30px;
+    }
+
+    @media (max-width: 425px) {
+        display: none;
+    }
 `
 
 export const ImgBox = styled.div `

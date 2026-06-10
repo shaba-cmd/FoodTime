@@ -17,4 +17,8 @@ export const SButton = styled.button `
         gap: 15px;
         padding: ${({$type}) => $type === 'header-btn' ? '17.5px 51px' : '20px 60px'};
     }
+
+    @media (max-width: 425px) {
+        a { justify-content: center;}
+    }
 `

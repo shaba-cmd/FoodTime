@@ -34,11 +34,19 @@ export const Text = styled.p `
     color: #676767;
     padding: 12px 0 30px 0;
     text-align: center;
+
+    @media (max-width: 640px) {
+        width: 100%;
+    }
 `
 
 export const BtnBox = styled.div `
     display: flex;
     gap: 20px;
+
+    @media (max-width: 640px) {
+        flex-direction: column;
+    }
 `
 
 export const Iamge = styled.img `
@@ -46,5 +54,9 @@ export const Iamge = styled.img `
     
     @media (max-width: 1280px) {
         width: 480px;
+    }
+
+    @media (max-width: 640px) {
+        width: 100%;
     }
 `

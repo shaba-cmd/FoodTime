@@ -6,6 +6,15 @@ export const SSlider = styled.section `
     gap: 105px;
     padding-top: 105px;
     padding-bottom: 105px;
+
+    @media (max-width: 640px) {
+        gap: 25px;
+        padding-bottom: 50px;
+    }
+
+    @media (max-width: 425px) {
+        padding-top: 50px;
+    }
 `
 
 export const SliderBtn = styled.div `
@@ -18,6 +27,14 @@ export const SliderBtn = styled.div `
         
         & article:last-child {
             grid-column: 1/3;
+        }
+    }
+
+    @media (max-width: 840px) {
+        grid-template-columns: repeat(1, 1fr);
+
+        & article:last-child {
+            grid-column: 1;
         }
     }
 `
@@ -37,6 +54,7 @@ export const Iamge = styled.div `
     background-image: ${({$type}) => 'url(' + $type + ')'};
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
     border-radius: 50px;
     animation: ${fadeIn} 0.5s ease-out;
     
@@ -51,6 +69,22 @@ export const Iamge = styled.div `
         padding-bottom: 50px;
         padding-top: 590px;
         color: #FFFFFF;
+        text-align: center;
+    }
+
+    @media (max-width: 640px) {
+       height: 500px;
+
+       & div {
+        background: linear-gradient(180deg, #00000000, #396c03bd, #396C03);
+        padding-top: 190px;
+       }
+    }
+
+    @media (max-width: 425px) {
+       & div {
+        padding-top: 220px;
+       }
     }
 `
 

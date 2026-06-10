@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { QuestionCard, QuestionHeader, Question, Answer } from './QuestionAnswerstyled.js'
 import open from '../../../../assets/open.svg'
 import close from '../../../../assets/close.svg'

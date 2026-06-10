@@ -14,6 +14,12 @@ export const SFooter = styled.footer `
 export const FooterBox = styled.div `
     display: flex;
     justify-content: space-between;
+    
+    @media (max-width: 840px) {
+       flex-direction: column;
+       gap: 40px;
+       align-items: center;
+    }
 `
 
 export const LogoBox = styled.div `
@@ -25,6 +31,14 @@ export const LogoBox = styled.div `
     @media (max-width: 1050px) {
         width: 350px;
     }
+
+    @media (max-width: 840px) {
+       align-items: center;
+    }
+
+    @media (max-width: 425px) {
+        width: 100%;
+    }
 `
 
 export const Logo = styled(Link) `
@@ -34,6 +48,12 @@ export const Logo = styled(Link) `
 
 export const Text = styled.p `
     font-size: 1.125rem;
+
+    @media (max-width: 840px) {
+       text-align: center;
+    }
+
+    
 `
 
 export const Navigate = styled.nav `
@@ -77,6 +97,11 @@ export const Ul = styled.ul `
 
     @media (max-width: 1050px) {
         align-self: self-start;
+    }
+
+    @media (max-width: 840px) {
+       align-self: center; 
+       align-items: center;
     }
 `
 

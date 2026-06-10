@@ -7,24 +7,13 @@ export const SHeader = styled.header `
     border-bottom: 1px solid #3f3f3f2c;
     padding-top: 21px;
     padding-bottom: 21px;
-    background-color: ${({$scroll}) => $scroll === 'scrolled' ? 'rgba(107, 145, 66, 0.1)' : 'transparent'};  
-    position: ${({$scroll}) => $scroll === 'scrolled' ? 'fixed' : 'absolute'};
+    background-color: transparent;  
+    position: ${({$type}) => $type === 'mobile' ? 'fixed' : $type === 'scrolled' ? 'fixed' : 'absolute'};
     top: 0;
     z-index: 10;
     width: 100%;
     backdrop-filter: blur(10px);
-
-    & .hidden {
-        display: none;
-    }
-
-    @media (max-width: 840px) {
-        justify-content: space-between;
-
-        & .hidden {
-            display: block;
-        }
-    }
+    justify-content: space-between;
 `
 export const Logo = styled(Link) `
     text-decoration: none;
