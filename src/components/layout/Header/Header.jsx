@@ -4,7 +4,7 @@ import { SHeader, Logo, Block, List, BtnBox, Cart } from './Header.styled'
 import { useEffect, useState } from 'react'
 import BurgerMenu from './BurgerMenu'
 
-const Header = ({ isAuth, cartCounter }) => {
+const Header = ({ isAuth, cartCounter, handleLogout }) => {
     const [scrolled, setScrolled] = useState(false);
     const [screenMenu, setScreenMenu] = useState(false);
 
@@ -49,7 +49,10 @@ const Header = ({ isAuth, cartCounter }) => {
                         </List>
                     </nav>
                     <BtnBox>
-                        {isAuth ? <Button styles={'header-btn'} link={'/sign-in'} text={'Exit'} /> : <Button styles={'header-btn'} link={'/sign-in'} text={'Login'} />}
+                        {isAuth 
+                            ? <Button styles={'header-btn'} link={'/sign-in'} text={'Exit'} onClick={handleLogout}/> 
+                            : <Button styles={'header-btn'} link={'/sign-in'} text={'Login'} />
+                        }
                         <Cart to='/cart'>
                             <img src="/cart.svg" alt="cart" />
                             {cartCounter !== 0 && 

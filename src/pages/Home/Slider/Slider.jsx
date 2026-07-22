@@ -2,7 +2,7 @@ import Item from './Item/Item'
 import Button from '../../../components/ui/Button/Button'
 import arrow from '../../../assets/arrow.svg'
 import { SSlider, SliderBtn, Iamge, Title, Text } from './Slider.styled.js'
-import { slider } from '../../../../data.js'
+import { slider } from './data.js'
 import { useEffect, useState } from 'react'
 
 const Slider = () => {

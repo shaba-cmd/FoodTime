@@ -14,14 +14,19 @@ import NotFound from './pages/NotFound/NotFound.jsx'
 import Footer from './components/layout/Footer/Footer'
 
 function App() {
-  const [isAuth, setIsAuth] = useState(false)
+  const [isAuth, setIsAuth] = useState(() => !!localStorage.getItem('token'))
   const [cartCounter, setCartCounter] = useState(0)
+
+  const handleLogout = () => {
+    localStorage.removeItem('token')
+    setIsAuth(false)
+  }   
 
   return (
     <>
       <GlobalStyle />
       
-      <Header isAuth={isAuth} cartCounter={cartCounter}/> 
+      <Header isAuth={isAuth} cartCounter={cartCounter} handleLogout={handleLogout}/> 
 
         <Routes>
           <Route path='/' element={<Home />}/>
@@ -34,7 +39,7 @@ function App() {
           </Route>
 
           <Route path='/sign-in' element={<SignInPage setIsAuth={setIsAuth}/>}/>
-          <Route path='/sign-up' element={<SignUpPage />}/>
+          <Route path='/sign-up' element={<SignUpPage setIsAuth={setIsAuth}/>}/>
           <Route path='*' element={<NotFound />}/>
         </Routes>
 

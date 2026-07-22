@@ -4,6 +4,22 @@ export const CardContainer = styled.article `
     background-color: #9e9e9e33;
     border-radius: 20px;
     width: 400px;
+
+    @media (max-width: 1280px) {
+        width: 316px;
+    }
+
+    @media (max-width: 1050px) {
+        width: 387px;
+    }
+
+    @media (max-width: 840px) {
+        width: 287px;
+    }
+
+    @media (max-width: 640px) {
+        width: 100%;
+    }
 `
 
 export const ImgBox = styled.div `
@@ -17,6 +33,22 @@ export const ImgBox = styled.div `
 
     & img {
         width: 100%;
+    }
+
+    @media (max-width: 1280px) {
+        height: 316px;
+    }
+
+    @media (max-width: 1050px) {
+        height: 387px;
+    }
+
+    @media (max-width: 840px) {
+        height: 287px;
+    }
+
+    @media (max-width: 640px) {
+        height: 400px;
     }
 
     @media (max-width: 425px) {

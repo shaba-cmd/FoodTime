@@ -94,3 +94,10 @@ export const Text = styled.p `
         font-size: 1rem;
     }
 `
+
+export const ErrorMes = styled.p `
+    font-size: 3.125rem;
+    color: #396C03;
+    font-weight: 600;
+    text-align: center;
+`

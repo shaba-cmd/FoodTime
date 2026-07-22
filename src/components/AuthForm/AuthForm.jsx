@@ -1,6 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { SAuth, SignContainer, Title, FormAuth, Text } from './AuthForm.styled.js'
 import { useState } from 'react'
+import { login, register } from '../../api'
 
 const AuthForm = ({ isSignUp, setIsAuth }) => {
   const [formData, setFormData] = useState({
@@ -15,41 +16,49 @@ const AuthForm = ({ isSignUp, setIsAuth }) => {
     password: ''
   })
 
+  const [serverError, setServerError] = useState('')
   const navigate = useNavigate()
 
-  const handleLogin = (e) => {
-    e.preventDefault();
+  const getFieldsToCheck = () => isSignUp 
+    ? ['name', 'username', 'password'] 
+    : ['username', 'password']
 
-    if (!isFormValid()) {
+  const handleLogin = async (e) => {
+    e.preventDefault()
+    setServerError('')
+
+    const fields = getFieldsToCheck()
+
+    const isValid = fields.every(field => {
+      const error = validateField(field, formData[field])
+      return !error && formData[field].trim() !== ''
+    })
+
+    if (!isValid) {
       const newErrors = {}
-      const fieldsToCheck = isSignUp 
-        ? ['name', 'username', 'password'] 
-        : ['username', 'password']
-      
-      fieldsToCheck.forEach(field => {
+      fields.forEach(field => {
         newErrors[field] = validateField(field, formData[field])
       })
       setErrors(newErrors)
       return
     }
 
-    setIsAuth(true)
-    navigate('/')
-  }
+    try {
+      const data = isSignUp 
+        ? await register(formData.name, formData.username, formData.password)
+        : await login(formData.username, formData.password)
 
-  const isFormValid = () => {
-    const fieldsToCheck = isSignUp 
-      ? ['name', 'username', 'password'] 
-      : ['username', 'password']
-    
-    return fieldsToCheck.every(field => {
-      const error = validateField(field, formData[field])
-      return !error && formData[field].trim() !== ''
-    })
+      localStorage.setItem('token', data.token)
+      setIsAuth(true)
+      navigate('/')
+    } catch (err) {
+      setServerError(err.message)
+    }
   }
 
   const handleChange = (fieldName, value) => {
     setFormData(prev => ({ ...prev, [fieldName]: value }))
+    setServerError('')
     
     const error = validateField(fieldName, value)
     setErrors(prev => ({ ...prev, [fieldName]: error }))
@@ -101,44 +110,49 @@ const AuthForm = ({ isSignUp, setIsAuth }) => {
   return (
     <SAuth>
       <SignContainer>
-              <Title>{isSignUp ? 'Sign up' : 'Sign in'}</Title>
-              <FormAuth>
-                  {isSignUp && 
-                    <div>
-                      <input 
-                        type="text"
-                        placeholder='Enter your name'
-                        onChange={(e) => {handleChange('name', e.target.value)}}
-                      />
-                      <p>{errors.name}</p>
-                    </div>
-                  }
-                  <div>
-                    <input 
-                      type="text"
-                      placeholder='Enter your username'
-                      onChange={(e) => {handleChange('username', e.target.value)}}
-                      />
-                    <p>{errors.username}</p>
-                  </div>
-                  <div>
-                    <input 
-                      type="password"
-                      placeholder='Enter the password'
-                      onChange={(e) => {handleChange('password', e.target.value)}}
-                      />
-                    <p>{errors.password}</p>
-                  </div>
-              </FormAuth>
+        <Title>{isSignUp ? 'Sign up' : 'Sign in'}</Title>
+        <FormAuth>
+          {isSignUp && 
+            <div>
+              <input 
+                type="text"
+                placeholder='Enter your name'
+                value={formData.name}
+                onChange={(e) => handleChange('name', e.target.value)}
+              />
+              <p>{errors.name}</p>
+            </div>
+          }
+          <div>
+            <input 
+              type="text"
+              placeholder='Enter your username'
+              value={formData.username}
+              onChange={(e) => handleChange('username', e.target.value)}
+            />
+            <p>{errors.username}</p>
+          </div>
+          <div>
+            <input 
+              type="password"
+              placeholder='Enter the password'
+              value={formData.password}
+              onChange={(e) => handleChange('password', e.target.value)}
+            />
+            <p>{errors.password}</p>
+            
+            {serverError && <p>{serverError}</p>}
+          </div>
+        </FormAuth>
 
-              <div>
-                <Text>
-                  If you {!isSignUp && 'don\'t'} have an account, 
-                  then {isSignUp ? <Link to='/sign-in'>Sign in</Link> : <Link to='/sign-up'>Sign up</Link>}
-                </Text>
-                <button onClick={(e) => {handleLogin(e)}}>Enter</button>
-              </div>
-          </SignContainer>
+        <div>
+          <Text>
+            If you {!isSignUp && 'don\'t'} have an account, 
+            then {isSignUp ? <Link to='/sign-in'>Sign in</Link> : <Link to='/sign-up'>Sign up</Link>}
+          </Text>
+          <button onClick={handleLogin}>Enter</button>
+        </div>
+      </SignContainer>
     </SAuth>
   )
 }

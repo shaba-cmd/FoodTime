@@ -12,7 +12,7 @@ const Card = ({ setCartCounter, img, title, text, price }) => {
           <Text>{text}</Text>
         </div>
         <PriceBox>
-          <p>Price: {price}$</p>
+          <p>Price: ${price}</p>
           <button onClick={() => {
             setCartCounter(e => e + 1)
           }}>Order</button>
