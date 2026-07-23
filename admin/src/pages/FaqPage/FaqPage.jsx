@@ -90,13 +90,13 @@ const FaqPage = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {category.faq.map((item) => (
-                      <tr key={item.idQuestion}>
+                    {category.items.map((item) => (
+                      <tr key={item.id}>
                         <td>{item.question.substring(0, 80)}...</td>
                         <td>{item.answer.substring(0, 100)}...</td>
                         <td>
                           <Btn className="btn-edit" onClick={() => handleEdit(item, category.id)}>Edit</Btn>
-                          <Btn className="btn-delete" onClick={() => handleDelete(item.idQuestion)}>Delete</Btn>
+                          <Btn className="btn-delete" onClick={() => handleDelete(item.id)}>Delete</Btn>
                         </td>
                       </tr>
                     ))}
