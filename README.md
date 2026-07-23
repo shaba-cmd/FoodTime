@@ -6,15 +6,15 @@ FoodTime — это веб-приложение для доставки здор
 
 ## Технологии
 
-**Frontend**
+* **Frontend**
  * React
  * Vite
  * React Router
-**Admin Panel**
+* **Admin Panel**
  * React
  * Vite
  * React Router
-**Backend**
+* **Backend**
  * Node.js 24
  * Express.js
  * PostgreSQL (через pg)
@@ -30,7 +30,7 @@ FoodTime — это веб-приложение для доставки здор
 | Сервис       | URL                                                 |
 | ------------ | --------------------------------------------------- |
 | Frontend     | <https://foodtime-x20c.onrender.com>                |
-| Admin Panel  | <https://foodtime-admin-xxxxx.onrender.com>         |
+| Admin Panel  | <https://foodtime-admin.onrender.com>         |
 | API          | <https://foodtime-api-26ur.onrender.com>            |
 | Health Check | <https://foodtime-api-26ur.onrender.com/api/health> |
 
