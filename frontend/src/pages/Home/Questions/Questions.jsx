@@ -6,22 +6,21 @@ import { getFaq } from '../../../api.js'
 
 const Questions = () => {
     const [faq, setFaq] = useState([]);
+    const [activeId, setActiveId] = useState(null);
     const [idQuestions, setIdQuestions] = useState(null);
-    const [openQuestionId, setOpenQuestionId] = useState(null);
 
     useEffect(() => {
         getFaq()
         .then(data => {
             setFaq(data);
-            if (data.length > 0) {
-                setIdQuestions(data[0]);
-            }
+            data.length > 0 && setActiveId(data[0].id)
         })
         .catch(console.error);
     }, []);
     
-    const handleClick = (id) => {
-        setOpenQuestionId(prev => prev === id ? null : id);
+    const handleClick = (el) => {
+        setActiveId(el.id)
+        setIdQuestions(el)
     }
 
     if (!faq.length) return <div>Loading...</div>;
@@ -35,7 +34,7 @@ const Questions = () => {
                         return (
                             <Button 
                                 key={el.id}
-                                styles={el.id !== openQuestionId && 'faq-btn'}
+                                styles={el.id !== activeId && 'faq-btn'}
                                 text={el.title}
                                 onClick={() => handleClick(el)}
                             />

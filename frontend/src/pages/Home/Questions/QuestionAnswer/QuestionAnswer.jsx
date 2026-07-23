@@ -4,27 +4,25 @@ import open from '../../../../assets/open.svg'
 import close from '../../../../assets/close.svg'
 
 const QuestionAnswer = ({ idQuestions }) => {
-  const [openQuestionId, setOpenQuestionId] = useState(Number)
-  const [activeFaq, setActiveFaq] = useState(false)
+  const [openQuestionId, setOpenQuestionId] = useState(null)
 
-  const handleQuestionClick = (el) => {
-    setOpenQuestionId(el)
-    activeFaq ? setActiveFaq(false) : setActiveFaq(true)
+  const handleQuestionClick = (id) => {
+    setOpenQuestionId(prev => prev === id ? null : id);
   }
   
   return (
     idQuestions.items.map((el) => { return (
       <QuestionCard
-          key={el.idQuestion}
-          onClick={() => handleQuestionClick(el.idQuestion)}
+          key={el.id}
+          onClick={() => handleQuestionClick(el.id)}
       >
           <QuestionHeader>
               <Question>{el.question}</Question>
-              {openQuestionId === el.idQuestion && activeFaq
+              {openQuestionId === el.id
               ? <img src={close} alt="close" />
               : <img src={open} alt="open" />}
           </QuestionHeader>
-          <Answer $isOpen={openQuestionId === el.idQuestion && activeFaq}>
+          <Answer $isOpen={openQuestionId === el.id}>
               {el.answer}
           </Answer>
       </QuestionCard>
