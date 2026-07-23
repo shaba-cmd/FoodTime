@@ -9,7 +9,10 @@ const Store = ({ setCartCounter }) => {
 
   useEffect(() => {
     getProducts()
-      .then(setProducts)
+      .then((data) => {
+        setProducts(data)
+        setLoading(false)
+      })
       .catch(console.error)
       .finally(() => setLoading(false));
   }, []);

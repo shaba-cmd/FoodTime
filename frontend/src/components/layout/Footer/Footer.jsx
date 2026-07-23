@@ -22,7 +22,7 @@ const Footer = () => {
               <li>Quick links</li>
               <Link to='/store'>Browse Foodtime</Link>
               <Link to='/store'>Browse Food tim</Link>
-              <Link to='/auth'>Registrations</Link>
+              <Link to='/sign-up'>Registrations</Link>
             </Ul>
 
             <Ul>
