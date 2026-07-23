@@ -13,13 +13,15 @@ const Questions = () => {
         getFaq()
         .then(data => {
             setFaq(data);
-            data.length > 0 && setActiveId(data[0].id)
+            if (data.length > 0) {
+                setActiveId(data[0].id)
+                setIdQuestions(data[0])
+            } 
         })
         .catch(console.error);
     }, []);
     
     const handleClick = (el) => {
-        console.log(el);
         setActiveId(el.id)
         setIdQuestions(el)
     }
