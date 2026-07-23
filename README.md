@@ -6,22 +6,22 @@ FoodTime — это веб-приложение для доставки здор
 
 ## Технологии
 
-* **Frontend**
- * React
- * Vite
- * React Router
-* **Admin Panel**
- * React
- * Vite
- * React Router
-* **Backend**
- * Node.js 24
- * Express.js
- * PostgreSQL (через pg)
- * bcryptjs (хеширование паролей)
- * jsonwebtoken (JWT аутентификация)
- * multer (загрузка файлов)
- * express-validator (валидация)
++ **Frontend**
+    * React
+    * Vite
+    * React Router
++ **Admin Panel**
+    * React
+    * Vite
+    * React Router
++ **Backend**
+    * Node.js 24
+    * Express.js
+    * PostgreSQL (через pg)
+    * bcryptjs (хеширование паролей)
+    * jsonwebtoken (JWT аутентификация)
+    * multer (загрузка файлов)
+    * express-validator (валидация)
 
 ## Деплой
 
