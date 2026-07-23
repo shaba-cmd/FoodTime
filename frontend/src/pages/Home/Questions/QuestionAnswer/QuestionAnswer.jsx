@@ -13,7 +13,7 @@ const QuestionAnswer = ({ idQuestions }) => {
   }
   
   return (
-    idQuestions.faq.map((el) => { return (
+    idQuestions.items.map((el) => { return (
       <QuestionCard
           key={el.idQuestion}
           onClick={() => handleQuestionClick(el.idQuestion)}

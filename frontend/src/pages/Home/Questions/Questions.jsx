@@ -5,16 +5,13 @@ import { SQuestions, Head, Title, BtnBox, FaqBox } from './Questions.styled.js'
 import { getFaq } from '../../../api.js'
 
 const Questions = () => {
-    const [faq, setFaq] = useState([]);
+    const [faq, setFaq] = useState(null);
     const [activeId, setActiveId] = useState(null);
     const [idQuestions, setIdQuestions] = useState(null);
 
     useEffect(() => {
         getFaq()
         .then(data => {
-            console.log('Raw FAQ data:', data);
-            console.log('Is array:', Array.isArray(data));
-
             setFaq(data);
             if (data.length > 0) {
                 setActiveId(data[0].id);
