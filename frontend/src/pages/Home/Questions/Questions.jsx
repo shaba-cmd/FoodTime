@@ -12,6 +12,9 @@ const Questions = () => {
     useEffect(() => {
         getFaq()
         .then(data => {
+            console.log('Raw FAQ data:', data);
+            console.log('Is array:', Array.isArray(data));
+
             setFaq(data);
             if (data.length > 0) {
                 setActiveId(data[0].id);
