@@ -5,7 +5,7 @@ import { SQuestions, Head, Title, BtnBox, FaqBox } from './Questions.styled.js'
 import { getFaq } from '../../../api.js'
 
 const Questions = () => {
-    const [faq, setFaq] = useState(null);
+    const [faq, setFaq] = useState([]);
     const [activeId, setActiveId] = useState(null);
     const [idQuestions, setIdQuestions] = useState(null);
 
