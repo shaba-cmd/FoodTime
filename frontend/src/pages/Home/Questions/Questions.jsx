@@ -19,6 +19,7 @@ const Questions = () => {
     }, []);
     
     const handleClick = (el) => {
+        console.log(el);
         setActiveId(el.id)
         setIdQuestions(el)
     }
